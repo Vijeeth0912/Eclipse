@@ -8,9 +8,10 @@ public class PayloadConverter {
 
 	public static String generatePayloadString(String filename) throws IOException
 	{
-		String filepath = "C:\\Users\\SreeVijeethJayanVala\\workspace\\Framework\\Resources\\"+filename;
+		String filepath = "C:\\Users\\SreeVijeethJayanVala\\EclipseRestAssured\\Framework\\Resources\\"+filename;
 		//System.getProperty("uder.dir")+"\\resource\\"+filename;
 		return new String(Files.readAllBytes(Paths.get(filepath)));
+		
 	}
 	
 }

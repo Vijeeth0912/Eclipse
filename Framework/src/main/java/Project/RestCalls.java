@@ -16,6 +16,15 @@ public class RestCalls {
 		return response;
 	}
 	
+	public static Response getRequestWithHeader(String URI, String accessToken)
+	{
+		RequestSpecification rs = RestAssured.given();
+		rs.contentType(ContentType.JSON);
+		rs.header("Authorization", "Bearer "+accessToken);
+		Response response = rs.get(URI);
+		return response;
+	}
+	
 	public static Response postRequest(String URI, String strJson)
 	{
 		RequestSpecification rs = RestAssured.given().body(strJson);
@@ -36,6 +45,15 @@ public class RestCalls {
 	{
 		RequestSpecification rs = RestAssured.given().body(strJson);
 		rs.contentType(ContentType.JSON);
+		Response response = rs.delete(URI);
+		return response;
+	}
+	
+	public static Response deleteRequestWithHeader(String URI, String accessToken)
+	{
+		RequestSpecification rs = RestAssured.given();
+		rs.contentType(ContentType.JSON);
+		rs.header("Authorization", "Bearer "+accessToken);
 		Response response = rs.delete(URI);
 		return response;
 	}
